@@ -9,213 +9,326 @@
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: { sans: ['Inter', 'sans-serif'] },
-                    colors: { primary: '#38bdf8', dark: '#0f172a' }
+                    fontFamily: { sans: ['Outfit', 'sans-serif'] },
+                    colors: { 
+                        brand: '#00d2ff',
+                        accent: '#3a7bd5'
+                    },
+                    animation: {
+                        'gradient-x': 'gradient-x 15s ease infinite',
+                    },
+                    keyframes: {
+                        'gradient-x': {
+                            '0%, 100%': {
+                                'background-size': '200% 200%',
+                                'background-position': 'left center'
+                            },
+                            '50%': {
+                                'background-size': '200% 200%',
+                                'background-position': 'right center'
+                            },
+                        }
+                    }
                 }
             }
         }
     </script>
     <style>
-        body { margin: 0; background-color: #0f172a; color: #f8fafc; }
-        #tsparticles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
-        .glass-card { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
-        .hover-lift { transition: transform 0.2s ease-in-out; }
-        .hover-lift:hover { transform: translateY(-5px); }
+        body { 
+            margin: 0; 
+            background: linear-gradient(-45deg, #0f172a, #1e1b4b, #0f172a, #172554);
+            background-size: 400% 400%;
+            animation: gradient-x 15s ease infinite;
+            color: #f8fafc; 
+        }
+        #tsparticles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+        
+        /* Glassmorphism styling */
+        .glass-card { 
+            background: rgba(15, 23, 42, 0.4); 
+            backdrop-filter: blur(12px); 
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08); 
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            transition: all 0.3s ease;
+        }
+        .glass-card:hover {
+            border-color: rgba(0, 210, 255, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(0, 210, 255, 0.15);
+            transform: translateY(-4px);
+        }
+        
+        /* Unified tag styling */
+        .tech-tag {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.2s ease;
+        }
+        .tech-tag:hover {
+            background: rgba(0, 210, 255, 0.15);
+            border-color: rgba(0, 210, 255, 0.5);
+            color: #00d2ff;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -10px rgba(0, 210, 255, 0.8);
+        }
+        .btn-secondary {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.2s;
+        }
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.4);
+            transform: translateY(-2px);
+        }
     </style>
 </head>
-<body class="antialiased selection:bg-primary selection:text-white">
+<body class="antialiased selection:bg-brand selection:text-white">
 
     <!-- Interactive Background -->
     <div id="tsparticles"></div>
 
-    <div class="relative z-10 max-w-5xl mx-auto px-6 py-12 md:py-20">
+    <div class="relative z-10 max-w-6xl mx-auto px-6 py-16 md:py-24">
         
         <!-- Hero Section -->
-        <header class="flex flex-col-reverse md:flex-row items-center justify-between gap-10 mb-20">
+        <header class="flex flex-col-reverse md:flex-row items-center justify-between gap-12 mb-24">
             <div class="flex-1 text-center md:text-left">
-                <h1 class="text-5xl md:text-6xl font-bold tracking-tight mb-4">Matteo Calviello</h1>
-                <h2 class="text-xl md:text-2xl text-primary font-medium mb-6">Associate Data Scientist @ Exelon</h2>
-                <p class="text-slate-300 text-lg mb-8 max-w-2xl leading-relaxed">
-                    Computer Science and Data Science graduate from Rose-Hulman building computer vision, machine learning, and AI agent solutions for utility infrastructure.
+                <div class="inline-block px-3 py-1 mb-6 rounded-full bg-brand/10 border border-brand/20 text-brand text-sm font-semibold tracking-wide">
+                    Available for full-time opportunities
+                </div>
+                <h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-4 text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-400">Matteo Calviello</h1>
+                <h2 class="text-2xl md:text-3xl text-brand font-medium mb-6">Associate Data Scientist</h2>
+                <p class="text-slate-300 text-lg md:text-xl mb-8 max-w-2xl leading-relaxed font-light">
+                    Engineering AI pipelines, computer vision systems, and intelligent agents for utility infrastructure. Recent Computer Science and Data Science double-major graduate.
                 </p>
+                
+                <!-- Action Buttons -->
+                <div class="flex flex-wrap justify-center md:justify-start gap-4 mb-8">
+                    <a href="Matteo_Calviello_Resume.pdf" target="_blank" class="btn-primary text-white px-6 py-3 rounded-xl font-medium flex items-center gap-2">
+                        <i class="fas fa-file-pdf"></i> Download Resume
+                    </a>
+                    <a href="mailto:mattecalviello04@gmail.com" class="btn-secondary text-white px-6 py-3 rounded-xl font-medium flex items-center gap-2">
+                        <i class="fas fa-envelope"></i> Email Me
+                    </a>
+                </div>
+
                 <!-- Social Links -->
-                <div class="flex justify-center md:justify-start gap-5 text-2xl">
+                <div class="flex justify-center md:justify-start gap-6 text-2xl">
                     <a href="https://github.com/matteocalviello" target="_blank" class="text-slate-400 hover:text-white transition-colors"><i class="fab fa-github"></i></a>
                     <a href="https://www.linkedin.com/in/matteo-calviello" target="_blank" class="text-slate-400 hover:text-[#0a66c2] transition-colors"><i class="fab fa-linkedin"></i></a>
                     <a href="https://www.kaggle.com/matteocalviello12" target="_blank" class="text-slate-400 hover:text-[#20beff] transition-colors"><i class="fab fa-kaggle"></i></a>
-                    <a href="mailto:mattecalviello04@gmail.com" class="text-slate-400 hover:text-white transition-colors"><i class="fas fa-envelope"></i></a>
                 </div>
             </div>
             <!-- Profile Image -->
-            <div class="w-48 h-48 md:w-64 md:h-64 shrink-0 rounded-full overflow-hidden border-4 border-primary/20 shadow-2xl">
-                <!-- Ensure you upload a profile.jpg to your repo -->
-                <img src="profile.jpg" alt="Matteo Calviello" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/256/1e293b/38bdf8?text=MC'">
+            <div class="w-56 h-56 md:w-72 md:h-72 shrink-0 rounded-3xl overflow-hidden border border-white/10 shadow-2xl relative group">
+                <div class="absolute inset-0 bg-gradient-to-tr from-brand/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
+                <img src="profile.jpg" alt="Matteo Calviello" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" onerror="this.src='https://via.placeholder.com/400/1e293b/00d2ff?text=MC'">
             </div>
         </header>
 
         <!-- About Section -->
-        <section class="mb-20 glass-card rounded-2xl p-8 shadow-xl">
-            <h3 class="text-2xl font-semibold mb-4 border-b border-slate-600 pb-2"><i class="fas fa-user-astronaut mr-2 text-primary"></i> About Me</h3>
-            <p class="text-slate-300 leading-relaxed mb-4">
-                Originally from Milan, Italy, I came to the U.S. chasing an ambition that quickly shifted from Electrical Engineering to Computer Science and AI. My journey at Rose-Hulman taught me how to adapt rapidly—from learning to code from scratch my freshman year, to co-authoring award-winning predictive algorithms and leading the <strong>Alpha Tau Omega</strong> fraternity as Vice President.
-            </p>
-            <p class="text-slate-300 leading-relaxed">
-                Beyond the terminal, I served as the <strong>Captain of the Rose-Hulman DIII Varsity Swimming & Diving team</strong>, helping secure 4 consecutive HCAC Conference Championships. Whether I am competing in the pool, presenting medical AI models at national BMES conferences, or engineering AI pipelines for Exelon's power grids, I believe in discipline, teamwork, and making the "American Dream" real. 
-            </p>
+        <section class="mb-24">
+            <div class="glass-card rounded-3xl p-8 md:p-10">
+                <h3 class="text-3xl font-semibold mb-6 flex items-center gap-3"><i class="fas fa-user-astronaut text-brand"></i> About Me</h3>
+                <div class="grid md:grid-cols-2 gap-8 text-slate-300 leading-relaxed text-lg font-light">
+                    <p>
+                        Originally from Milan, Italy, I relocated to the U.S. chasing an ambition that quickly shifted from Electrical Engineering to Computer Science and AI. My journey at Rose-Hulman taught me how to adapt rapidly—from learning to code from scratch my freshman year, to co-authoring award-winning predictive algorithms and tackling complex computer vision research.
+                    </p>
+                    <p>
+                        Beyond my academic and technical work, I thrive in collaborative, high-stakes environments. My experiences—from leading my fraternity's executive board to captaining the varsity swimming and diving team—have instilled a deep appreciation for team dynamics, discipline, and effective communication. Whether I am competing, presenting medical AI models at national conferences, or engineering data pipelines for power grids, I am driven by a desire to build solutions that have a tangible, positive impact.
+                    </p>
+                </div>
+            </div>
         </section>
 
         <!-- Experience Section -->
-        <section class="mb-20">
-            <h3 class="text-2xl font-semibold mb-6 border-b border-slate-600 pb-2"><i class="fas fa-briefcase mr-2 text-primary"></i> Experience</h3>
+        <section class="mb-24">
+            <h3 class="text-3xl font-semibold mb-8 flex items-center gap-3"><i class="fas fa-briefcase text-brand"></i> Experience</h3>
             
-            <div class="glass-card rounded-2xl p-8 mb-6 hover-lift border-l-4 border-l-primary">
-                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
-                    <div>
-                        <h4 class="text-xl font-bold">Associate Data Scientist</h4>
-                        <div class="text-primary font-medium">Exelon (ComEd) • Chicago, IL</div>
+            <div class="space-y-6">
+                <!-- Role 1 -->
+                <div class="glass-card rounded-2xl p-8 relative overflow-hidden">
+                    <div class="absolute left-0 top-0 bottom-0 w-1 bg-brand"></div>
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
+                        <div>
+                            <h4 class="text-xl font-bold text-white">Associate Data Scientist</h4>
+                            <div class="text-brand font-medium text-lg">Exelon (ComEd) • Chicago, IL</div>
+                        </div>
+                        <div class="text-slate-400 mt-2 md:mt-0 font-mono bg-white/5 px-3 py-1 rounded-full text-sm border border-white/10">Aug 2026 – Present</div>
                     </div>
-                    <div class="text-slate-400 mt-2 md:mt-0 font-mono text-sm">Aug 2026 – Present</div>
+                    <ul class="list-none text-slate-300 space-y-3 font-light">
+                        <li class="flex items-start gap-3"><i class="fas fa-caret-right text-brand mt-1"></i> <span>Engineering AI pipelines within Grid Analytics, applying CV and ML to optimize utility infrastructure.</span></li>
+                        <li class="flex items-start gap-3"><i class="fas fa-caret-right text-brand mt-1"></i> <span>Developing a company-wide chatbot utilizing AI agents to automate data retrieval.</span></li>
+                        <li class="flex items-start gap-3"><i class="fas fa-caret-right text-brand mt-1"></i> <span>Executing complex data manipulation using SQL to feed structured datasets into AI models.</span></li>
+                    </ul>
                 </div>
-                <ul class="list-disc list-outside ml-5 text-slate-300 space-y-2 marker:text-primary">
-                    <li>Engineering AI pipelines within Grid Analytics, applying CV and ML to optimize utility infrastructure.</li>
-                    <li>Developing a company-wide chatbot utilizing AI agents to automate data retrieval.</li>
-                    <li>Executing complex data manipulation using SQL to feed structured datasets into AI models.</li>
-                </ul>
-            </div>
 
-            <div class="glass-card rounded-2xl p-8 hover-lift">
-                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
-                    <div>
-                        <h4 class="text-xl font-bold">Data Science Intern</h4>
-                        <div class="text-primary font-medium">Exelon (ComEd) • Chicago, IL</div>
+                <!-- Role 2 -->
+                <div class="glass-card rounded-2xl p-8 relative overflow-hidden">
+                    <div class="absolute left-0 top-0 bottom-0 w-1 bg-slate-600"></div>
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
+                        <div>
+                            <h4 class="text-xl font-bold text-white">Data Science Intern</h4>
+                            <div class="text-brand font-medium text-lg">Exelon (ComEd) • Chicago, IL</div>
+                        </div>
+                        <div class="text-slate-400 mt-2 md:mt-0 font-mono bg-white/5 px-3 py-1 rounded-full text-sm border border-white/10">Summers 2023, 2024, 2025</div>
                     </div>
-                    <div class="text-slate-400 mt-2 md:mt-0 font-mono text-sm">Summers 2023, 2024, 2025</div>
+                    <ul class="list-none text-slate-300 space-y-3 font-light">
+                        <li class="flex items-start gap-3"><i class="fas fa-caret-right text-brand mt-1"></i> <span>Built CV pipeline to predict pole accessibility and replacement costs (94% SME agreement), reducing budgeting error by 90%.</span></li>
+                        <li class="flex items-start gap-3"><i class="fas fa-caret-right text-brand mt-1"></i> <span>Developed ViT and CNN models for component detection (up to 86% accuracy).</span></li>
+                        <li class="flex items-start gap-3"><i class="fas fa-caret-right text-brand mt-1"></i> <span>Automated image labeling with clustering, vector embeddings, and Meta's SAM, achieving a 10x speedup across 900k+ images.</span></li>
+                    </ul>
                 </div>
-                <ul class="list-disc list-outside ml-5 text-slate-300 space-y-2 marker:text-primary">
-                    <li>Built CV pipeline to predict pole accessibility and replacement costs (94% SME agreement), reducing budgeting error by 90%.</li>
-                    <li>Developed ViT and CNN models for component detection (up to 86% accuracy).</li>
-                    <li>Automated image labeling with clustering, vector embeddings, and Meta's SAM, achieving a 10x speedup across 900k+ images.</li>
-                </ul>
             </div>
         </section>
 
-        <!-- Projects & Press Section -->
-        <section class="mb-20">
-            <h3 class="text-2xl font-semibold mb-6 border-b border-slate-600 pb-2"><i class="fas fa-code-branch mr-2 text-primary"></i> Featured Work & Research</h3>
+        <!-- Projects & Research Section -->
+        <section class="mb-24">
+            <h3 class="text-3xl font-semibold mb-8 flex items-center gap-3"><i class="fas fa-network-wired text-brand"></i> Featured Work & Research</h3>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <!-- Project 1 -->
-                <div class="glass-card rounded-2xl p-6 flex flex-col h-full hover-lift">
-                    <div class="flex justify-between items-start mb-3">
-                        <h4 class="text-lg font-bold">Lunar Autonomy Challenge</h4>
-                        <span class="bg-purple-900/50 text-purple-300 text-xs px-2 py-1 rounded border border-purple-700">NASA Top 8</span>
+                <div class="glass-card rounded-2xl p-8 flex flex-col h-full">
+                    <div class="flex justify-between items-start mb-4">
+                        <h4 class="text-xl font-bold text-white">Single Image Super-Resolution</h4>
+                        <span class="bg-blue-500/20 text-blue-300 text-xs px-3 py-1 rounded-full border border-blue-500/30 font-semibold uppercase tracking-wider">Best Thesis</span>
                     </div>
-                    <p class="text-slate-400 text-sm mb-4 flex-grow">Built stereo vision and perception systems to enable hazard detection and obstacle identification in simulated lunar navigation.</p>
-                    <a href="https://www.rose-hulman.edu/news/2025/rose-hulman-team-makes-it-to-the-top-10-of-the-nasa-lunar-autonomy-challenge.html" target="_blank" class="text-primary text-sm font-medium hover:underline inline-flex items-center">
-                        Read Rose-Hulman Article <i class="fas fa-arrow-right ml-1 text-xs"></i>
-                    </a>
+                    <p class="text-slate-300 font-light mb-6 flex-grow">Reproduced Omni Aggregation Network (OAN) for SISR. Improved reconstruction quality and reduced model parameters by 10% via custom architectural enhancements.</p>
+                    <div class="flex flex-wrap gap-3 mt-auto pt-4 border-t border-white/10">
+                        <a href="https://github.com/matteocalviello/Thesis" target="_blank" class="text-sm font-medium text-slate-300 hover:text-brand transition-colors flex items-center gap-2">
+                            <i class="fab fa-github"></i> Repository
+                        </a>
+                        <a href="https://scholar.rose-hulman.edu/computer_science_seniorproject/3/" target="_blank" class="text-sm font-medium text-slate-300 hover:text-brand transition-colors flex items-center gap-2">
+                            <i class="fas fa-book-open"></i> Read Paper
+                        </a>
+                    </div>
                 </div>
 
                 <!-- Project 2 -->
-                <div class="glass-card rounded-2xl p-6 flex flex-col h-full hover-lift">
-                    <div class="flex justify-between items-start mb-3">
-                        <h4 class="text-lg font-bold">NeuroScan AI</h4>
-                        <span class="bg-red-900/50 text-red-300 text-xs px-2 py-1 rounded border border-red-700">Medtronic Top 3</span>
+                <div class="glass-card rounded-2xl p-8 flex flex-col h-full">
+                    <div class="flex justify-between items-start mb-4">
+                        <h4 class="text-xl font-bold text-white">NeuroScan AI</h4>
+                        <span class="bg-red-500/20 text-red-300 text-xs px-3 py-1 rounded-full border border-red-500/30 font-semibold uppercase tracking-wider">Medtronic Top 3</span>
                     </div>
-                    <p class="text-slate-400 text-sm mb-4 flex-grow">Full-stack platform integrating U-Net and CNNs for brain scan segmentation. Presented at the 2025 BMES national conference.</p>
-                    <a href="https://www.rose-hulman.edu/news/2026/twins-matteo-and-tommaso-calviello-swim-through-college-together.html" target="_blank" class="text-primary text-sm font-medium hover:underline inline-flex items-center">
-                        Read Rose-Hulman Article <i class="fas fa-arrow-right ml-1 text-xs"></i>
-                    </a>
+                    <p class="text-slate-300 font-light mb-6 flex-grow">Full-stack platform integrating U-Net and CNNs for brain scan segmentation and AI-powered report generation. Presented at the 2025 BMES national conference.</p>
+                    <div class="flex flex-wrap gap-3 mt-auto pt-4 border-t border-white/10">
+                        <a href="https://github.com/tommasocalviello/Neuroscan.ai" target="_blank" class="text-sm font-medium text-slate-300 hover:text-brand transition-colors flex items-center gap-2">
+                            <i class="fab fa-github"></i> Repository
+                        </a>
+                        <a href="https://www.rose-hulman.edu/news/2026/twins-matteo-and-tommaso-calviello-swim-through-college-together.html" target="_blank" class="text-sm font-medium text-slate-300 hover:text-brand transition-colors flex items-center gap-2">
+                            <i class="fas fa-newspaper"></i> Read Article
+                        </a>
+                    </div>
                 </div>
 
                 <!-- Project 3 -->
-                <div class="glass-card rounded-2xl p-6 flex flex-col h-full hover-lift">
-                    <div class="flex justify-between items-start mb-3">
-                        <h4 class="text-lg font-bold">NCAA Analytics Challenge</h4>
-                        <span class="bg-green-900/50 text-green-300 text-xs px-2 py-1 rounded border border-green-700">1st Place (157 Teams)</span>
+                <div class="glass-card rounded-2xl p-8 flex flex-col h-full">
+                    <div class="flex justify-between items-start mb-4">
+                        <h4 class="text-xl font-bold text-white">Lunar Autonomy Challenge</h4>
+                        <span class="bg-purple-500/20 text-purple-300 text-xs px-3 py-1 rounded-full border border-purple-500/30 font-semibold uppercase tracking-wider">NASA Top 8</span>
                     </div>
-                    <p class="text-slate-400 text-sm mb-4 flex-grow">Built predictive models and custom team performance metrics for tournament success analysis, presenting Tableau dashboards to NCAA judges.</p>
-                    <a href="https://github.com/tommasocalviello/ncaa-analytics" target="_blank" class="text-primary text-sm font-medium hover:underline inline-flex items-center">
-                        View Repository <i class="fab fa-github ml-1 text-xs"></i>
-                    </a>
+                    <p class="text-slate-300 font-light mb-6 flex-grow">Built stereo vision and perception systems to enable hazard detection, elevation mapping, and obstacle identification in simulated lunar navigation environments.</p>
+                    <div class="flex flex-wrap gap-3 mt-auto pt-4 border-t border-white/10">
+                        <a href="https://www.rose-hulman.edu/news/2025/rose-hulman-team-makes-it-to-the-top-10-of-the-nasa-lunar-autonomy-challenge.html" target="_blank" class="text-sm font-medium text-slate-300 hover:text-brand transition-colors flex items-center gap-2">
+                            <i class="fas fa-newspaper"></i> Read Article
+                        </a>
+                    </div>
                 </div>
 
                 <!-- Project 4 -->
-                <div class="glass-card rounded-2xl p-6 flex flex-col h-full hover-lift">
-                    <div class="flex justify-between items-start mb-3">
-                        <h4 class="text-lg font-bold">Single Image Super-Resolution</h4>
-                        <span class="bg-blue-900/50 text-blue-300 text-xs px-2 py-1 rounded border border-blue-700">Best Thesis Award</span>
+                <div class="glass-card rounded-2xl p-8 flex flex-col h-full">
+                    <div class="flex justify-between items-start mb-4">
+                        <h4 class="text-xl font-bold text-white">NCAA Analytics Challenge</h4>
+                        <span class="bg-green-500/20 text-green-300 text-xs px-3 py-1 rounded-full border border-green-500/30 font-semibold uppercase tracking-wider">1st Place (157 Teams)</span>
                     </div>
-                    <p class="text-slate-400 text-sm mb-4 flex-grow">Reproduced Omni Aggregation Network (OAN). Improved reconstruction quality and reduced parameters by 10% via architectural enhancements.</p>
-                    <a href="https://github.com/matteocalviello/Thesis" target="_blank" class="text-primary text-sm font-medium hover:underline inline-flex items-center">
-                        View Repository <i class="fab fa-github ml-1 text-xs"></i>
-                    </a>
+                    <p class="text-slate-300 font-light mb-6 flex-grow">Built predictive models and custom team performance metrics for tournament success analysis, presenting Tableau dashboards containing business insights to NCAA judges.</p>
+                    <div class="flex flex-wrap gap-3 mt-auto pt-4 border-t border-white/10">
+                        <a href="https://github.com/tommasocalviello/ncaa-analytics" target="_blank" class="text-sm font-medium text-slate-300 hover:text-brand transition-colors flex items-center gap-2">
+                            <i class="fab fa-github"></i> Repository
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Skills Section -->
-        <section class="mb-10">
-            <h3 class="text-2xl font-semibold mb-6 border-b border-slate-600 pb-2"><i class="fas fa-terminal mr-2 text-primary"></i> Technical Toolkit</h3>
-            <div class="glass-card rounded-2xl p-8">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Comprehensive Skills Section -->
+        <section class="mb-20">
+            <h3 class="text-3xl font-semibold mb-8 flex items-center gap-3"><i class="fas fa-microchip text-brand"></i> Technical Toolkit</h3>
+            <div class="glass-card rounded-3xl p-8 md:p-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     <div>
-                        <h5 class="text-sm uppercase tracking-wider text-slate-400 font-bold mb-3">Languages</h5>
+                        <h5 class="text-sm uppercase tracking-widest text-brand font-bold mb-4 border-b border-white/10 pb-2">Languages</h5>
                         <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-slate-800 rounded-full text-sm">Python</span>
-                            <span class="px-3 py-1 bg-slate-800 rounded-full text-sm">SQL</span>
-                            <span class="px-3 py-1 bg-slate-800 rounded-full text-sm">R</span>
-                            <span class="px-3 py-1 bg-slate-800 rounded-full text-sm">Java</span>
-                            <span class="px-3 py-1 bg-slate-800 rounded-full text-sm">C</span>
-                            <span class="px-3 py-1 bg-slate-800 rounded-full text-sm">MATLAB</span>
+                            <span class="tech-tag px-3 py-1 rounded-lg text-sm text-slate-200">Python</span>
+                            <span class="tech-tag px-3 py-1 rounded-lg text-sm text-slate-200">SQL</span>
+                            <span class="tech-tag px-3 py-1 rounded-lg text-sm text-slate-200">R</span>
+                            <span class="tech-tag px-3 py-1 rounded-lg text-sm text-slate-200">Java</span>
+                            <span class="tech-tag px-3 py-1 rounded-lg text-sm text-slate-200">C</span>
+                            <span class="tech-tag px-3 py-1 rounded-lg text-sm text-slate-200">JavaScript</span>
+                            <span class="tech-tag px-3 py-1 rounded-lg text-sm text-slate-200">MATLAB</span>
                         </div>
                     </div>
                     <div>
-                        <h5 class="text-sm uppercase tracking-wider text-slate-400 font-bold mb-3">AI / Data Science</h5>
+                        <h5 class="text-sm uppercase tracking-widest text-brand font-bold mb-4 border-b border-white/10 pb-2">Domains</h5>
                         <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-slate-800 border border-primary/30 text-primary rounded-full text-sm">Machine Learning</span>
-                            <span class="px-3 py-1 bg-slate-800 border border-primary/30 text-primary rounded-full text-sm">Computer Vision</span>
-                            <span class="px-3 py-1 bg-slate-800 border border-primary/30 text-primary rounded-full text-sm">Agentic AI</span>
-                            <span class="px-3 py-1 bg-slate-800 rounded-full text-sm">Deep Learning</span>
-                            <span class="px-3 py-1 bg-slate-800 rounded-full text-sm">Predictive Modeling</span>
+                            <span class="tech-tag px-3 py-1 rounded-lg text-sm text-slate-200">Machine Learning</span>
+                            <span class="tech-tag px-3 py-1 rounded-lg text-sm text-slate-200">Computer Vision</span>
+                            <span class="tech-tag px-3 py-1 rounded-lg text-sm text-slate-200">Deep Learning</span>
+                            <span class="tech-tag px-3 py-1 rounded-lg text-sm text-slate-200">Agentic AI</span>
+                            <span class="tech-tag px-3 py-1 rounded-lg text-sm text-slate-200">Predictive Modeling</span>
+                            <span class="tech-tag px-3 py-1 rounded-lg text-sm text-slate-200">Image Segmentation</span>
+                            <span class="tech-tag px-3 py-1 rounded-lg text-sm text-slate-200">Stereo Vision</span>
+                            <span class="tech-tag px-3 py-1 rounded-lg text-sm text-slate-200">Vector Embeddings</span>
                         </div>
                     </div>
                     <div>
-                        <h5 class="text-sm uppercase tracking-wider text-slate-400 font-bold mb-3">Frameworks & Tools</h5>
+                        <h5 class="text-sm uppercase tracking-widest text-brand font-bold mb-4 border-b border-white/10 pb-2">Frameworks</h5>
                         <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-slate-800 rounded-full text-sm">PyTorch</span>
-                            <span class="px-3 py-1 bg-slate-800 rounded-full text-sm">TensorFlow</span>
-                            <span class="px-3 py-1 bg-slate-800 rounded-full text-sm">Scikit-Learn</span>
-                            <span class="px-3 py-1 bg-slate-800 rounded-full text-sm">Pandas</span>
-                            <span class="px-3 py-1 bg-slate-800 rounded-full text-sm">Tableau</span>
+                            <span class="tech-tag px-3 py-1 rounded-lg text-sm text-slate-200">PyTorch</span>
+                            <span class="tech-tag px-3 py-1 rounded-lg text-sm text-slate-200">TensorFlow</span>
+                            <span class="tech-tag px-3 py-1 rounded-lg text-sm text-slate-200">Scikit-Learn</span>
+                            <span class="tech-tag px-3 py-1 rounded-lg text-sm text-slate-200">Pandas & NumPy</span>
+                            <span class="tech-tag px-3 py-1 rounded-lg text-sm text-slate-200">OpenCV</span>
+                            <span class="tech-tag px-3 py-1 rounded-lg text-sm text-slate-200">MLflow</span>
+                            <span class="tech-tag px-3 py-1 rounded-lg text-sm text-slate-200">GeoPandas</span>
+                            <span class="tech-tag px-3 py-1 rounded-lg text-sm text-slate-200">Tableau & Power BI</span>
                         </div>
                     </div>
                     <div>
-                        <h5 class="text-sm uppercase tracking-wider text-slate-400 font-bold mb-3">Cloud & DevOps</h5>
+                        <h5 class="text-sm uppercase tracking-widest text-brand font-bold mb-4 border-b border-white/10 pb-2">Infrastructure</h5>
                         <div class="flex flex-wrap gap-2">
-                            <span class="px-3 py-1 bg-slate-800 rounded-full text-sm">Docker</span>
-                            <span class="px-3 py-1 bg-slate-800 rounded-full text-sm">Kubernetes</span>
-                            <span class="px-3 py-1 bg-slate-800 rounded-full text-sm">Azure</span>
-                            <span class="px-3 py-1 bg-slate-800 rounded-full text-sm">CI/CD</span>
-                            <span class="px-3 py-1 bg-slate-800 rounded-full text-sm">Linux</span>
+                            <span class="tech-tag px-3 py-1 rounded-lg text-sm text-slate-200">Docker</span>
+                            <span class="tech-tag px-3 py-1 rounded-lg text-sm text-slate-200">Kubernetes</span>
+                            <span class="tech-tag px-3 py-1 rounded-lg text-sm text-slate-200">Podman</span>
+                            <span class="tech-tag px-3 py-1 rounded-lg text-sm text-slate-200">Azure</span>
+                            <span class="tech-tag px-3 py-1 rounded-lg text-sm text-slate-200">CI/CD</span>
+                            <span class="tech-tag px-3 py-1 rounded-lg text-sm text-slate-200">Linux</span>
+                            <span class="tech-tag px-3 py-1 rounded-lg text-sm text-slate-200">Git</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
         
-        <footer class="text-center text-slate-500 text-sm mt-12 pb-8">
+        <footer class="text-center text-slate-500 text-sm mt-12 pb-8 border-t border-white/5 pt-8">
             <p>"Talk about a dream, try to make it real." — Bruce Springsteen</p>
             <p class="mt-2">© 2026 Matteo Calviello</p>
         </footer>
     </div>
 
-    <!-- tsParticles Script for Interactive Dark Background -->
+    <!-- tsParticles Script -->
     <script src="https://cdn.jsdelivr.net/npm/tsparticles-engine@2/tsparticles.engine.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/tsparticles-basic@2/tsparticles.basic.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/tsparticles-interaction-particles-links@2/tsparticles.interaction.particles.links.min.js"></script>
@@ -235,18 +348,17 @@
             await engine.loadUpdaterOpacity(engine);
             await engine.loadUpdaterSize(engine);
             await engine.load("tsparticles", {
-                background: { color: { value: "#0f172a" } },
                 fpsLimit: 60,
                 interactivity: {
                     events: { onHover: { enable: true, mode: "grab" }, resize: true },
-                    modes: { grab: { distance: 140, links: { opacity: 0.5 } } }
+                    modes: { grab: { distance: 180, links: { opacity: 0.6 } } }
                 },
                 particles: {
-                    color: { value: "#38bdf8" },
-                    links: { color: "#38bdf8", distance: 150, enable: true, opacity: 0.2, width: 1 },
-                    move: { enable: true, speed: 1, outModes: { default: "bounce" } },
-                    number: { density: { enable: true, area: 800 }, value: 60 },
-                    opacity: { value: 0.3 },
+                    color: { value: ["#00d2ff", "#ffffff", "#3a7bd5"] },
+                    links: { color: "#ffffff", distance: 150, enable: true, opacity: 0.15, width: 1 },
+                    move: { enable: true, speed: 0.8, direction: "none", random: true, straight: false, outModes: { default: "bounce" } },
+                    number: { density: { enable: true, area: 1000 }, value: 70 },
+                    opacity: { value: { min: 0.1, max: 0.5 } },
                     shape: { type: "circle" },
                     size: { value: { min: 1, max: 3 } }
                 },

@@ -94,8 +94,6 @@
 
         }
 
-        #tsparticles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
-
         
 
         /* Glassmorphism styling */
@@ -193,12 +191,6 @@
 </head>
 
 <body class="antialiased selection:bg-brand selection:text-white">
-
-
-
-    <!-- Interactive Background -->
-
-    <div id="tsparticles"></div>
 
 
 
@@ -651,84 +643,6 @@
     </div>
 
 
-
-    <!-- tsParticles Script -->
-
-    <script src="https://cdn.jsdelivr.net/npm/tsparticles-engine@2/tsparticles.engine.min.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/tsparticles-basic@2/tsparticles.basic.min.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/tsparticles-interaction-particles-links@2/tsparticles.interaction.particles.links.min.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/tsparticles-move-base@2/tsparticles.move.base.min.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/tsparticles-shape-circle@2/tsparticles.shape.circle.min.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/tsparticles-updater-color@2/tsparticles.updater.color.min.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/tsparticles-updater-opacity@2/tsparticles.updater.opacity.min.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/tsparticles-updater-size@2/tsparticles.updater.size.min.js"></script>
-
-    <script>
-
-        async function loadParticles(options) {
-
-            const engine = window.tsParticles;
-
-            await engine.loadBasic(engine);
-
-            await engine.loadInteractionParticlesLinks(engine);
-
-            await engine.loadMoveBase(engine);
-
-            await engine.loadShapeCircle(engine);
-
-            await engine.loadUpdaterColor(engine);
-
-            await engine.loadUpdaterOpacity(engine);
-
-            await engine.loadUpdaterSize(engine);
-
-            await engine.load("tsparticles", {
-
-                fpsLimit: 60,
-
-                interactivity: {
-
-                    events: { onHover: { enable: true, mode: "grab" }, resize: true },
-
-                    modes: { grab: { distance: 180, links: { opacity: 0.6 } } }
-
-                },
-
-                particles: {
-
-                    color: { value: ["#00d2ff", "#ffffff", "#3a7bd5"] },
-
-                    links: { color: "#ffffff", distance: 150, enable: true, opacity: 0.15, width: 1 },
-
-                    move: { enable: true, speed: 0.8, direction: "none", random: true, straight: false, outModes: { default: "bounce" } },
-
-                    number: { density: { enable: true, area: 1000 }, value: 70 },
-
-                    opacity: { value: { min: 0.1, max: 0.5 } },
-
-                    shape: { type: "circle" },
-
-                    size: { value: { min: 1, max: 3 } }
-
-                },
-
-                detectRetina: true
-
-            });
-
-        }
-
-        loadParticles();
-
-    </script>
 
 </body>
 

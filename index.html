@@ -1,649 +1,280 @@
 <!DOCTYPE html>
-
-<html lang="en" class="scroll-smooth">
-
+<html lang="en">
 <head>
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Matteo Calviello | Data Scientist</title>
-
-    <!-- Tailwind CSS -->
-
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- FontAwesome -->
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- Google Fonts -->
-
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <script>
-
-        tailwind.config = {
-
-            theme: {
-
-                extend: {
-
-                    fontFamily: { sans: ['Outfit', 'sans-serif'] },
-
-                    colors: { 
-
-                        brand: '#00d2ff',
-
-                        accent: '#3a7bd5'
-
-                    },
-
-                    animation: {
-
-                        'gradient-x': 'gradient-x 15s ease infinite',
-
-                    },
-
-                    keyframes: {
-
-                        'gradient-x': {
-
-                            '0%, 100%': {
-
-                                'background-size': '200% 200%',
-
-                                'background-position': 'left center'
-
-                            },
-
-                            '50%': {
-
-                                'background-size': '200% 200%',
-
-                                'background-position': 'right center'
-
-                            },
-
-                        }
-
-                    }
-
-                }
-
-            }
-
-        }
-
-    </script>
-
-    <style>
-
-        body { 
-
-            margin: 0; 
-
-            background: linear-gradient(-45deg, #0f172a, #1e1b4b, #0f172a, #172554);
-
-            background-size: 400% 400%;
-
-            animation: gradient-x 15s ease infinite;
-
-            color: #f8fafc; 
-
-        }
-
-        
-
-        /* Glassmorphism styling */
-
-        .glass-card { 
-
-            background: rgba(15, 23, 42, 0.4); 
-
-            backdrop-filter: blur(12px); 
-
-            -webkit-backdrop-filter: blur(12px);
-
-            border: 1px solid rgba(255, 255, 255, 0.08); 
-
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-
-            transition: all 0.3s ease;
-
-        }
-
-        .glass-card:hover {
-
-            border-color: rgba(0, 210, 255, 0.3);
-
-            box-shadow: 0 8px 32px 0 rgba(0, 210, 255, 0.15);
-
-            transform: translateY(-4px);
-
-        }
-
-        
-
-        /* Unified tag styling */
-
-        .tech-tag {
-
-            background: rgba(255, 255, 255, 0.05);
-
-            border: 1px solid rgba(255, 255, 255, 0.1);
-
-            transition: all 0.2s ease;
-
-        }
-
-        .tech-tag:hover {
-
-            background: rgba(0, 210, 255, 0.15);
-
-            border-color: rgba(0, 210, 255, 0.5);
-
-            color: #00d2ff;
-
-        }
-
-        
-
-        .btn-primary {
-
-            background: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%);
-
-            transition: transform 0.2s, box-shadow 0.2s;
-
-        }
-
-        .btn-primary:hover {
-
-            transform: translateY(-2px);
-
-            box-shadow: 0 10px 20px -10px rgba(0, 210, 255, 0.8);
-
-        }
-
-        .btn-secondary {
-
-            background: rgba(255,255,255,0.05);
-
-            border: 1px solid rgba(255,255,255,0.2);
-
-            transition: all 0.2s;
-
-        }
-
-        .btn-secondary:hover {
-
-            background: rgba(255,255,255,0.1);
-
-            border-color: rgba(255,255,255,0.4);
-
-            transform: translateY(-2px);
-
-        }
-
-    </style>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Matteo Calviello | Data Scientist</title>
+<meta name="description" content="Matteo Calviello: data scientist at ComEd building computer vision, machine learning and AI agents. Journey, projects and contact.">
+<meta property="og:title" content="Matteo Calviello">
+<meta property="og:description" content="I teach computers to look at things: utility poles, brain scans, the lunar surface.">
+<meta property="og:image" content="profile.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🏊%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;600;800&family=Newsreader:opsz,wght@6..72,400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f2f6f5;--ink:#10202b;--mute:#4b606d;--card:#fff;--line:#d0dfdc;--pool:#0d5c8f;--onpool:#fff;--red:#d63c31;--gold:#e9a90f;--r:14px}
+[data-theme=dark]{--bg:#050e17;--ink:#e8f1f2;--mute:#9bb2bf;--card:#102a3b;--line:#1e3e53;--pool:#5cbcf5;--onpool:#06202f;--red:#ff6b5e;--gold:#f6c453}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.6 'Newsreader',Georgia,serif}
+h1,h2,h3,button,nav a,summary,.ui,.b{font-family:'Bricolage Grotesque',system-ui,sans-serif}
+a{color:var(--pool)}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.wrap{max-width:1040px;margin:0 auto;padding:84px 22px 0}
+h2{font-size:clamp(28px,4vw,42px);line-height:1.1;margin:0 0 8px;font-weight:800;letter-spacing:-.02em}
+h3{font-size:24px;margin:0 0 8px}
+.lead{color:var(--mute);margin:0 0 28px;max-width:62ch}
+#lane{position:fixed;inset:0 0 auto 0;height:18px;z-index:60;background:var(--bg)}
+#lane:after{content:"";position:absolute;left:0;right:0;top:13px;height:5px;background:repeating-linear-gradient(90deg,var(--red) 0 16px,#fff 16px 32px,var(--pool) 32px 48px)}
+#sw{position:absolute;top:-1px;font-style:normal;font-size:15px;line-height:1}
+.nav{position:sticky;top:18px;z-index:50;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px)}
+.in{max-width:1040px;margin:0 auto;padding:10px 22px;display:flex;align-items:center;gap:20px}
+.brand{font-weight:800;font-size:19px;color:var(--ink);text-decoration:none;margin-right:auto}
+.nav nav{display:flex;gap:18px}.nav nav a{color:var(--ink);text-decoration:none;font-weight:600;font-size:16px}
+#th{background:none;border:2px solid var(--ink);color:var(--ink);border-radius:50%;width:36px;height:36px;font-size:16px;cursor:pointer}
+.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;padding-top:48px}
+h1{font-size:clamp(48px,8vw,94px);line-height:.94;letter-spacing:-.045em;margin:0 0 20px;font-weight:800}
+.tag{font:600 clamp(20px,2.5vw,26px)/1.3 'Bricolage Grotesque',sans-serif;margin:0 0 16px}
+.hero p{max-width:54ch}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.b{display:inline-block;padding:10px 18px;border-radius:999px;border:2px solid var(--ink);background:none;color:var(--ink);font-weight:600;font-size:16px;text-decoration:none;cursor:pointer;line-height:1.3}
+.b.p{background:var(--pool);border-color:var(--pool);color:var(--onpool)}
+.frame{position:relative;aspect-ratio:302/365;border-radius:var(--r);overflow:hidden;border:2px solid var(--ink);background:var(--card)}
+.frame img,.frame canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.frame canvas{image-rendering:pixelated}
+#dv{position:absolute;top:0;bottom:0;width:3px;margin-left:-1px;background:var(--gold);display:none}
+.bx{position:absolute;border:2px solid var(--c);opacity:0;transform:scale(1.1);transition:.35s;pointer-events:none}
+.bx span{position:absolute;left:-2px;top:-22px;background:var(--c);color:#04140e;font:600 12px 'Bricolage Grotesque',sans-serif;padding:1px 6px;white-space:nowrap}
+.bx.lo span{top:auto;bottom:-22px}
+.det .bx{opacity:1;transform:none}
+.ctl{display:flex;align-items:center;gap:10px;margin-top:12px;font:600 14px 'Bricolage Grotesque',sans-serif;color:var(--mute)}
+.ctl input{flex:1;accent-color:var(--pool)}
+.cap{font-size:15px;color:var(--mute);margin:8px 0 0}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:0;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);margin-top:72px}
+.stats div{padding:18px 16px 18px 0}
+.stats b{display:block;font:800 clamp(22px,2.6vw,28px)/1.1 "Bricolage Grotesque",sans-serif;letter-spacing:-.02em}.stats b .n{font-size:clamp(44px,5.4vw,58px)}
+.stats span.c{font-size:15px;color:var(--mute);line-height:1.35;display:block;margin-top:6px}
+@keyframes in{from{opacity:0;transform:translateY(6px)}}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.chip{padding:7px 14px;border-radius:999px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;font-weight:600;font-size:15px}
+.chip[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;align-items:start}
+details.pj{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px}
+summary{cursor:pointer;list-style:none;font-weight:800;font-size:22px;line-height:1.2}
+summary::-webkit-details-marker{display:none}
+summary:after{content:"+";float:right;color:var(--mute)}details[open] summary:after{content:"–"}
+summary small{display:block;font-weight:600;font-size:14px;color:var(--red);margin-top:6px}
+details[open] summary{margin-bottom:12px}
+details p{margin:0 0 10px}
+.lk{display:flex;gap:16px;flex-wrap:wrap;font:600 16px 'Bricolage Grotesque',sans-serif}
+.rows a{display:block;padding:16px 4px;border-top:1px solid var(--line);text-decoration:none;color:var(--ink)}
+.rows a:last-child{border-bottom:1px solid var(--line)}
+.rows b{font:800 20px 'Bricolage Grotesque',sans-serif;color:var(--pool)}
+.rows span{display:block;color:var(--mute);font-size:16px}
+.rows a:hover b{text-decoration:underline}
+.mail{font:800 clamp(24px,4.4vw,44px)/1.1 'Bricolage Grotesque',sans-serif;letter-spacing:-.02em;word-break:break-all;color:var(--ink);text-decoration:none;display:block;margin:6px 0 20px}
+.mail:hover{color:var(--pool)}
+footer{max-width:1040px;margin:80px auto 0;padding:24px 22px 48px;border-top:1px solid var(--line);color:var(--mute);font-size:15px}
+@media(max-width:760px){.hero{grid-template-columns:1fr;gap:28px}.frame-wrap{max-width:340px}.nav nav a:not(.k){display:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+#bg,#glow{position:fixed;inset:0;z-index:-1;pointer-events:none;width:100%;height:100%}
+#glow{background:radial-gradient(520px circle at var(--mx,50%) var(--my,25%),rgba(92,188,245,.14),transparent 65%)}
+[data-theme=dark] h1{text-shadow:0 0 40px rgba(92,188,245,.3)}
+h1 span{display:inline-block;animation:rise .8s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i)*45ms)}
+@keyframes rise{from{opacity:0;transform:translateY(.6em) rotate(6deg)}}
+.tilt.tilt{transition:transform .15s,opacity .3s,box-shadow .3s;background-image:radial-gradient(260px circle at var(--sx,50%) var(--sy,50%),rgba(92,188,245,.16),transparent 70%)}
+.rv.rv{opacity:0;transform:translateY(28px);transition:opacity .7s,transform .7s}.rv.vis{opacity:1;transform:none}
+.gc{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px}
+.gc b.n{display:block;font:800 46px/1 'Bricolage Grotesque',sans-serif}.gc .c{color:var(--mute);font-size:15px}
+.br{display:grid;grid-template-columns:84px 1fr 22px;align-items:center;gap:8px;font-size:15px;margin:7px 0}
+.br u,.wk u{text-decoration:none;display:block}
+.br u{height:10px;border-radius:5px;background:var(--pool);width:0;animation:gw 1s .2s forwards}@keyframes gw{to{width:var(--w)}}
+.wk{display:flex;align-items:flex-end;gap:5px;height:130px}
+.wk u{flex:1;min-height:3px;height:0;background:var(--gold);border-radius:3px 3px 0 0;animation:gh .8s forwards}@keyframes gh{to{height:var(--h)}}
+.wk u:hover{background:var(--red)}
+.sc{display:inline-block;margin:4px 6px 4px 0;padding:6px 13px;border-radius:999px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:600 15px 'Bricolage Grotesque',sans-serif}
+button.sc{cursor:pointer}button.sc:after{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--gold);margin-left:8px;vertical-align:middle}
+.sc[aria-pressed=true]{background:var(--pool);border-color:var(--pool);color:var(--onpool)}
+.pj.hit{border-color:var(--gold);box-shadow:0 0 0 2px var(--gold)}.pj.dim{opacity:.35}
+footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+</style>
 </head>
-
-<body class="antialiased selection:bg-brand selection:text-white">
-
-
-
-    <div class="relative z-10 max-w-6xl mx-auto px-6 py-16 md:py-24">
-
-        
-
-        <!-- Hero Section -->
-
-        <header class="flex flex-col-reverse md:flex-row items-center justify-between gap-12 mb-24">
-
-            <div class="flex-1 text-center md:text-left">
-
-                <h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-4 text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-400">Matteo Calviello</h1>
-
-                <h2 class="text-2xl md:text-3xl text-brand font-medium mb-6">Associate Data Scientist</h2>
-
-                <p class="text-slate-300 text-lg md:text-xl mb-8 max-w-2xl leading-relaxed font-light">
-
-                    Engineering AI pipelines, computer vision systems, and intelligent agents for utility infrastructure. Recent Computer Science and Data Science double-major graduate.
-
-                </p>
-
-                
-
-                <!-- Action Buttons -->
-
-                <div class="flex flex-wrap justify-center md:justify-start gap-4 mb-8">
-
-                    <a href="Matteo_Calviello_Resume.pdf" target="_blank" class="btn-primary text-white px-6 py-3 rounded-xl font-medium flex items-center gap-2">
-
-                        <i class="fas fa-file-pdf"></i> Download Resume
-
-                    </a>
-
-                    <a href="mailto:mattecalviello04@gmail.com" class="btn-secondary text-white px-6 py-3 rounded-xl font-medium flex items-center gap-2">
-
-                        <i class="fas fa-envelope"></i> Email Me
-
-                    </a>
-
-                </div>
-
-
-
-                <!-- Social Links -->
-
-                <div class="flex justify-center md:justify-start gap-6 text-2xl">
-
-                    <a href="https://github.com/matteocalviello" target="_blank" class="text-slate-400 hover:text-white transition-colors"><i class="fab fa-github"></i></a>
-
-                    <a href="https://www.linkedin.com/in/matteo-calviello" target="_blank" class="text-slate-400 hover:text-[#0a66c2] transition-colors"><i class="fab fa-linkedin"></i></a>
-
-                    <a href="https://www.kaggle.com/matteocalviello12" target="_blank" class="text-slate-400 hover:text-[#20beff] transition-colors"><i class="fab fa-kaggle"></i></a>
-
-                </div>
-
-            </div>
-
-            <!-- Profile Image -->
-
-            <div class="w-56 h-56 md:w-72 md:h-72 shrink-0 rounded-3xl overflow-hidden border border-white/10 shadow-2xl relative group">
-
-                <div class="absolute inset-0 bg-gradient-to-tr from-brand/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
-
-                <img src="profile.jpg" alt="Matteo Calviello" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" onerror="this.src='https://via.placeholder.com/400/1e293b/00d2ff?text=MC'">
-
-            </div>
-
-        </header>
-
-
-
-        <!-- About Section -->
-
-        <section class="mb-24">
-
-            <div class="glass-card rounded-3xl p-8 md:p-10">
-
-                <h3 class="text-3xl font-semibold mb-6 flex items-center gap-3"><i class="fas fa-user-astronaut text-brand"></i> About Me</h3>
-
-                <div class="grid md:grid-cols-2 gap-8 text-slate-300 leading-relaxed text-lg font-light">
-
-                    <p>
-
-                        Originally from Milan, Italy, I relocated to the U.S. chasing an ambition in Computer Science and AI. My journey at Rose-Hulman taught me how to adapt rapidly—from learning to code from scratch my freshman year, to co-authoring award-winning predictive algorithms and tackling complex computer vision research.
-
-                    </p>
-
-                    <p>
-
-                        Beyond my academic and technical work, I thrive in collaborative, high-stakes environments. My experiences—from leading my fraternity's executive board to captaining the varsity swimming and diving team—have instilled a deep appreciation for team dynamics, discipline, and effective communication. Whether I am competing, presenting medical AI models at national conferences, or engineering data pipelines for power grids, I am driven by a desire to build solutions that have a tangible, positive impact.
-
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- Experience Section -->
-
-        <section class="mb-24">
-
-            <h3 class="text-3xl font-semibold mb-8 flex items-center gap-3"><i class="fas fa-briefcase text-brand"></i> Experience</h3>
-
-            
-
-            <div class="space-y-6">
-
-                <!-- Role 1 -->
-
-                <div class="glass-card rounded-2xl p-8 relative overflow-hidden">
-
-                    <div class="absolute left-0 top-0 bottom-0 w-1 bg-brand"></div>
-
-                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
-
-                        <div>
-
-                            <h4 class="text-xl font-bold text-white">Associate Data Scientist</h4>
-
-                            <div class="text-brand font-medium text-lg">Exelon (ComEd) • Chicago, IL</div>
-
-                        </div>
-
-                        <div class="text-slate-400 mt-2 md:mt-0 font-mono bg-white/5 px-3 py-1 rounded-full text-sm border border-white/10">Aug 2026 – Present</div>
-
-                    </div>
-
-                    <ul class="list-none text-slate-300 space-y-3 font-light">
-
-                        <li class="flex items-start gap-3"><i class="fas fa-caret-right text-brand mt-1"></i> <span>Engineering AI pipelines within Grid Analytics, applying CV and ML to optimize utility infrastructure.</span></li>
-
-                        <li class="flex items-start gap-3"><i class="fas fa-caret-right text-brand mt-1"></i> <span>Developing a company-wide chatbot utilizing AI agents to automate data retrieval.</span></li>
-
-                        <li class="flex items-start gap-3"><i class="fas fa-caret-right text-brand mt-1"></i> <span>Executing complex data manipulation using SQL to feed structured datasets into AI models.</span></li>
-
-                    </ul>
-
-                </div>
-
-
-
-                <!-- Role 2 -->
-
-                <div class="glass-card rounded-2xl p-8 relative overflow-hidden">
-
-                    <div class="absolute left-0 top-0 bottom-0 w-1 bg-slate-600"></div>
-
-                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
-
-                        <div>
-
-                            <h4 class="text-xl font-bold text-white">Data Science Intern</h4>
-
-                            <div class="text-brand font-medium text-lg">Exelon (ComEd) • Chicago, IL</div>
-
-                        </div>
-
-                        <div class="text-slate-400 mt-2 md:mt-0 font-mono bg-white/5 px-3 py-1 rounded-full text-sm border border-white/10">Summers 2023, 2024, 2025</div>
-
-                    </div>
-
-                    <ul class="list-none text-slate-300 space-y-3 font-light">
-
-                        <li class="flex items-start gap-3"><i class="fas fa-caret-right text-brand mt-1"></i> <span>Built CV pipeline to predict pole accessibility and replacement costs (94% SME agreement), reducing budgeting error by 90%.</span></li>
-
-                        <li class="flex items-start gap-3"><i class="fas fa-caret-right text-brand mt-1"></i> <span>Developed ViT and CNN models for component detection (up to 86% accuracy).</span></li>
-
-                        <li class="flex items-start gap-3"><i class="fas fa-caret-right text-brand mt-1"></i> <span>Automated image labeling with clustering, vector embeddings, and Meta's SAM, achieving a 10x speedup across 900k+ images.</span></li>
-
-                    </ul>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- Projects & Research Section -->
-
-        <section class="mb-24">
-
-            <h3 class="text-3xl font-semibold mb-8 flex items-center gap-3"><i class="fas fa-network-wired text-brand"></i> Featured Work & Research</h3>
-
-            
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-
-                <!-- Project 1 -->
-
-                <div class="glass-card rounded-2xl p-8 flex flex-col h-full">
-
-                    <div class="flex justify-between items-start mb-4">
-
-                        <h4 class="text-xl font-bold text-white">Single Image Super-Resolution</h4>
-
-                        <span class="bg-blue-500/20 text-blue-300 text-xs px-3 py-1 rounded-full border border-blue-500/30 font-semibold uppercase tracking-wider">Best Thesis</span>
-
-                    </div>
-
-                    <p class="text-slate-300 font-light mb-6 flex-grow">Reproduced Omni Aggregation Network (OAN) for SISR. Improved reconstruction quality and reduced model parameters by 10% via custom architectural enhancements.</p>
-
-                    <div class="flex flex-wrap gap-3 mt-auto pt-4 border-t border-white/10">
-
-                        <a href="https://github.com/matteocalviello/Thesis" target="_blank" class="text-sm font-medium text-slate-300 hover:text-brand transition-colors flex items-center gap-2">
-
-                            <i class="fab fa-github"></i> Repository
-
-                        </a>
-
-                        <a href="https://scholar.rose-hulman.edu/computer_science_seniorproject/3/" target="_blank" class="text-sm font-medium text-slate-300 hover:text-brand transition-colors flex items-center gap-2">
-
-                            <i class="fas fa-book-open"></i> Read Paper
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- Project 2 -->
-
-                <div class="glass-card rounded-2xl p-8 flex flex-col h-full">
-
-                    <div class="flex justify-between items-start mb-4">
-
-                        <h4 class="text-xl font-bold text-white">NeuroScan AI</h4>
-
-                        <span class="bg-red-500/20 text-red-300 text-xs px-3 py-1 rounded-full border border-red-500/30 font-semibold uppercase tracking-wider">Medtronic Top 3</span>
-
-                    </div>
-
-                    <p class="text-slate-300 font-light mb-6 flex-grow">Full-stack platform integrating U-Net and CNNs for brain scan segmentation and AI-powered report generation. Presented at the 2025 BMES national conference.</p>
-
-                    <div class="flex flex-wrap gap-3 mt-auto pt-4 border-t border-white/10">
-
-                        <a href="https://github.com/tommasocalviello/Neuroscan.ai" target="_blank" class="text-sm font-medium text-slate-300 hover:text-brand transition-colors flex items-center gap-2">
-
-                            <i class="fab fa-github"></i> Repository
-
-                        </a>
-
-                        <a href="https://www.rose-hulman.edu/news/2026/twins-matteo-and-tommaso-calviello-swim-through-college-together.html" target="_blank" class="text-sm font-medium text-slate-300 hover:text-brand transition-colors flex items-center gap-2">
-
-                            <i class="fas fa-newspaper"></i> Read Article
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- Project 3 -->
-
-                <div class="glass-card rounded-2xl p-8 flex flex-col h-full">
-
-                    <div class="flex justify-between items-start mb-4">
-
-                        <h4 class="text-xl font-bold text-white">Lunar Autonomy Challenge</h4>
-
-                        <span class="bg-purple-500/20 text-purple-300 text-xs px-3 py-1 rounded-full border border-purple-500/30 font-semibold uppercase tracking-wider">NASA Top 8</span>
-
-                    </div>
-
-                    <p class="text-slate-300 font-light mb-6 flex-grow">Built stereo vision and perception systems to enable hazard detection, elevation mapping, and obstacle identification in simulated lunar navigation environments.</p>
-
-                    <div class="flex flex-wrap gap-3 mt-auto pt-4 border-t border-white/10">
-
-                        <a href="https://www.rose-hulman.edu/news/2025/rose-hulman-team-makes-it-to-the-top-10-of-the-nasa-lunar-autonomy-challenge.html" target="_blank" class="text-sm font-medium text-slate-300 hover:text-brand transition-colors flex items-center gap-2">
-
-                            <i class="fas fa-newspaper"></i> Read Article
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- Project 4 -->
-
-                <div class="glass-card rounded-2xl p-8 flex flex-col h-full">
-
-                    <div class="flex justify-between items-start mb-4">
-
-                        <h4 class="text-xl font-bold text-white">NCAA Analytics Challenge</h4>
-
-                        <span class="bg-green-500/20 text-green-300 text-xs px-3 py-1 rounded-full border border-green-500/30 font-semibold uppercase tracking-wider">1st Place (157 Teams)</span>
-
-                    </div>
-
-                    <p class="text-slate-300 font-light mb-6 flex-grow">Built predictive models and custom team performance metrics for tournament success analysis, presenting Tableau dashboards containing business insights to NCAA judges.</p>
-
-                    <div class="flex flex-wrap gap-3 mt-auto pt-4 border-t border-white/10">
-
-                        <a href="https://github.com/tommasocalviello/ncaa-analytics" target="_blank" class="text-sm font-medium text-slate-300 hover:text-brand transition-colors flex items-center gap-2">
-
-                            <i class="fab fa-github"></i> Repository
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- Comprehensive Skills Section -->
-
-        <section class="mb-20">
-
-            <h3 class="text-3xl font-semibold mb-8 flex items-center gap-3"><i class="fas fa-microchip text-brand"></i> Technical Toolkit</h3>
-
-            <div class="glass-card rounded-3xl p-8 md:p-10">
-
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-
-                    <div>
-
-                        <h5 class="text-sm uppercase tracking-widest text-brand font-bold mb-4 border-b border-white/10 pb-2">Languages</h5>
-
-                        <div class="flex flex-wrap gap-2">
-
-                            <span class="tech-tag px-3 py-1 rounded-lg text-sm text-slate-200">Python</span>
-
-                            <span class="tech-tag px-3 py-1 rounded-lg text-sm text-slate-200">SQL</span>
-
-                            <span class="tech-tag px-3 py-1 rounded-lg text-sm text-slate-200">R</span>
-
-                            <span class="tech-tag px-3 py-1 rounded-lg text-sm text-slate-200">Java</span>
-
-                            <span class="tech-tag px-3 py-1 rounded-lg text-sm text-slate-200">C</span>
-
-                            <span class="tech-tag px-3 py-1 rounded-lg text-sm text-slate-200">JavaScript</span>
-
-                            <span class="tech-tag px-3 py-1 rounded-lg text-sm text-slate-200">MATLAB</span>
-
-                        </div>
-
-                    </div>
-
-                    <div>
-
-                        <h5 class="text-sm uppercase tracking-widest text-brand font-bold mb-4 border-b border-white/10 pb-2">Domains</h5>
-
-                        <div class="flex flex-wrap gap-2">
-
-                            <span class="tech-tag px-3 py-1 rounded-lg text-sm text-slate-200">Machine Learning</span>
-
-                            <span class="tech-tag px-3 py-1 rounded-lg text-sm text-slate-200">Computer Vision</span>
-
-                            <span class="tech-tag px-3 py-1 rounded-lg text-sm text-slate-200">Deep Learning</span>
-
-                            <span class="tech-tag px-3 py-1 rounded-lg text-sm text-slate-200">Agentic AI</span>
-
-                            <span class="tech-tag px-3 py-1 rounded-lg text-sm text-slate-200">Predictive Modeling</span>
-
-                            <span class="tech-tag px-3 py-1 rounded-lg text-sm text-slate-200">Image Segmentation</span>
-
-                            <span class="tech-tag px-3 py-1 rounded-lg text-sm text-slate-200">Stereo Vision</span>
-
-                            <span class="tech-tag px-3 py-1 rounded-lg text-sm text-slate-200">Vector Embeddings</span>
-
-                        </div>
-
-                    </div>
-
-                    <div>
-
-                        <h5 class="text-sm uppercase tracking-widest text-brand font-bold mb-4 border-b border-white/10 pb-2">Frameworks</h5>
-
-                        <div class="flex flex-wrap gap-2">
-
-                            <span class="tech-tag px-3 py-1 rounded-lg text-sm text-slate-200">PyTorch</span>
-
-                            <span class="tech-tag px-3 py-1 rounded-lg text-sm text-slate-200">TensorFlow</span>
-
-                            <span class="tech-tag px-3 py-1 rounded-lg text-sm text-slate-200">Scikit-Learn</span>
-
-                            <span class="tech-tag px-3 py-1 rounded-lg text-sm text-slate-200">Pandas & NumPy</span>
-
-                            <span class="tech-tag px-3 py-1 rounded-lg text-sm text-slate-200">OpenCV</span>
-
-                            <span class="tech-tag px-3 py-1 rounded-lg text-sm text-slate-200">MLflow</span>
-
-                            <span class="tech-tag px-3 py-1 rounded-lg text-sm text-slate-200">GeoPandas</span>
-
-                            <span class="tech-tag px-3 py-1 rounded-lg text-sm text-slate-200">Tableau & Power BI</span>
-
-                        </div>
-
-                    </div>
-
-                    <div>
-
-                        <h5 class="text-sm uppercase tracking-widest text-brand font-bold mb-4 border-b border-white/10 pb-2">Infrastructure</h5>
-
-                        <div class="flex flex-wrap gap-2">
-
-                            <span class="tech-tag px-3 py-1 rounded-lg text-sm text-slate-200">Docker</span>
-
-                            <span class="tech-tag px-3 py-1 rounded-lg text-sm text-slate-200">Kubernetes</span>
-
-                            <span class="tech-tag px-3 py-1 rounded-lg text-sm text-slate-200">Podman</span>
-
-                            <span class="tech-tag px-3 py-1 rounded-lg text-sm text-slate-200">Azure</span>
-
-                            <span class="tech-tag px-3 py-1 rounded-lg text-sm text-slate-200">CI/CD</span>
-
-                            <span class="tech-tag px-3 py-1 rounded-lg text-sm text-slate-200">Linux</span>
-
-                            <span class="tech-tag px-3 py-1 rounded-lg text-sm text-slate-200">Git</span>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-        
-
-        <footer class="text-center text-slate-500 text-sm mt-12 pb-8 border-t border-white/5 pt-8">
-
-            <p>"Talk about a dream, try to make it real." — Bruce Springsteen</p>
-
-            <p class="mt-2">© 2026 Matteo Calviello</p>
-
-        </footer>
-
-    </div>
-
-
-
+<body>
+<canvas id="bg" aria-hidden="true"></canvas><div id="glow"></div>
+<div id="lane" aria-hidden="true"><i id="sw">🏊</i></div>
+<header class="nav"><div class="in">
+<a class="brand" href="#top">Matteo Calviello</a>
+<nav aria-label="Sections"><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#live">Live</a><a href="#writing">Writing</a><a class="k" href="#contact">Contact</a></nav>
+<button id="th" aria-label="Toggle dark mode">◐</button>
+</div></header>
+
+<main id="top">
+<section class="wrap hero" style="padding-top:48px">
+<div>
+<h1>Matteo Calviello</h1>
+<p class="tag">I teach computers to look at things: utility poles, brain scans, the lunar surface.</p>
+<p>I’m an Associate Data Scientist at ComEd in Chicago. I grew up in Milan, trained at Rose-Hulman, and now build the vision models and AI agents that help a utility understand its grid. Drag the slider under my photo to see super-resolution, the subject of my thesis, at work.</p>
+<div class="btns">
+<a class="b p" href="mailto:mattecalviello04@gmail.com">Email me</a>
+<a class="b p" href="Matteo_Calviello_Resume.pdf" download>Download résumé</a>
+<a class="b" href="https://github.com/matteocalviello" target="_blank" rel="noopener">GitHub</a>
+<a class="b" href="https://www.linkedin.com/in/matteo-calviello" target="_blank" rel="noopener">LinkedIn</a>
+<a class="b" href="https://www.kaggle.com/matteocalviello12" target="_blank" rel="noopener">Kaggle</a>
+</div>
+</div>
+<div class="frame-wrap">
+<div class="frame" id="fr">
+<img id="ph" src="profile.jpg" alt="Matteo Calviello smiling in a navy suit and patterned tie">
+<canvas id="px" aria-hidden="true"></canvas><div id="dv"></div>
+<div class="bx" style="--c:#3ddc97;left:34%;top:13%;width:43%;height:46%"><span>face 0.99</span></div>
+<div class="bx lo" style="--c:#ff9f43;left:45%;top:50%;width:20%;height:8%"><span>smile 0.97</span></div>
+<div class="bx" style="--c:#f6c453;left:48%;top:74%;width:16%;height:26%"><span>tie 0.95</span></div>
+<div class="bx" style="--c:#5cbcf5;left:0;top:62%;width:100%;height:38%"><span>blazer 0.96</span></div>
+<div class="bx" style="--c:#ff6b81;left:0;top:8%;width:12%;height:62%"><span>flag 0.91</span></div>
+</div>
+<div class="ctl"><span>Low-res</span><input id="rg" type="range" min="0" max="100" value="0" aria-label="Super-resolution slider"><span>Super-res</span></div>
+<button class="b" id="dt" aria-pressed="false" style="margin-top:10px;padding:6px 14px;font-size:14px">Run detection</button>
+<p class="cap" id="cap" hidden>Illustrative overlay of the kind of detection output my ComEd models produce.</p>
+</div>
+</section>
+
+<section class="wrap" style="padding-top:0"><div class="stats">
+<div class="honor"><b><span class="n" data-v="3.86" data-d="2">3.86</span></b><span class="c">GPA at Rose-Hulman</span></div>
+<div class="honor"><b>Every quarter</b><span class="c">Dean’s List</span></div>
+<div class="honor"><b>Magna cum laude</b><span class="c">B.S. Computer Science and Data Science &amp; AI, May 2026</span></div>
+<div class="honor"><b>Best Senior Thesis</b><span class="c">Michael Atkins Award</span></div>
+<div class="honor"><b>Outstanding Scholar</b><span class="c">Frank Young Award</span></div>
+</div></section>
+
+<section class="wrap" id="skills"><h2>Skills</h2><p class="lead">The tools and methods I work with. Skills marked with a dot connect to my projects: select one to highlight where I used it.</p>
+<div class="grid" id="sk" style="grid-template-columns:repeat(auto-fit,minmax(min(400px,100%),1fr))"></div>
+<p class="cap" id="sn">Select a skill marked with a dot to see the projects where I used it.</p></section>
+
+
+<section class="wrap" id="projects">
+<h2>Selected projects</h2>
+<p class="lead">Filter by topic, then open a card for details and links.</p>
+<div class="chips" id="fl"></div>
+<div class="grid" id="pg"></div>
+</section>
+
+
+<section class="wrap" id="live" hidden><h2>Live from GitHub</h2><p class="lead">Pulled by a scheduled GitHub Action, so it updates itself. <span id="up"></span></p>
+<div class="grid" id="gc"></div>
+<div class="grid" style="margin-top:16px"><div class="gc tilt"><h3>Languages</h3><div id="lg"></div></div><div class="gc tilt"><h3>Commits per week</h3><div id="wk"></div></div></div></section>
+
+<section class="wrap" id="writing">
+<h2>Publications and press</h2>
+<p class="lead">My thesis, award essay and press coverage.</p>
+<div class="rows">
+<a href="Matteo_Calviello_-_Essay_award.pdf" target="_blank" rel="noopener"><b>Outstanding Senior &amp; Scholar essay</b><span>My story for the CSSE faculty: switching majors, competitions, swimming and the fraternity.</span></a>
+<a href="https://scholar.rose-hulman.edu/computer_science_seniorproject/3/" target="_blank" rel="noopener"><b>Senior thesis on super-resolution</b><span>Best Senior Thesis Award paper, hosted on Rose-Hulman Scholar.</span></a>
+<a href="https://www.rose-hulman.edu/news/2025/rose-hulman-team-makes-it-to-the-top-10-of-the-nasa-lunar-autonomy-challenge.html" target="_blank" rel="noopener"><b>Rose-Hulman: the NASA Lunar Autonomy Challenge</b><span>Our all-undergraduate team reaches the finals.</span></a>
+<a href="https://www.rose-hulman.edu/news/2026/twins-matteo-and-tommaso-calviello-swim-through-college-together.html" target="_blank" rel="noopener"><b>Rose-Hulman: twins swim through college together</b><span>Tommaso and I on four years in the pool.</span></a>
+</div>
+</section>
+
+<section class="wrap" id="contact">
+<h2>Contact</h2>
+<p class="lead">Open to conversations about data science roles, research and collaboration. Email is the fastest way to reach me.</p>
+<a class="mail" href="mailto:mattecalviello04@gmail.com">mattecalviello04@gmail.com</a>
+<div class="btns" style="margin-top:0">
+<a class="b p" href="mailto:mattecalviello04@gmail.com">Write an email</a>
+<button class="b" id="cp">Copy address</button>
+<a class="b" href="Matteo_Calviello_Resume.pdf" download>Download résumé</a>
+<a class="b" href="https://github.com/matteocalviello" target="_blank" rel="noopener">GitHub</a>
+<a class="b" href="https://www.linkedin.com/in/matteo-calviello" target="_blank" rel="noopener">LinkedIn</a>
+<a class="b" href="https://www.kaggle.com/matteocalviello12" target="_blank" rel="noopener">Kaggle</a>
+</div>
+</section>
+</main>
+<footer><span>© 2026 Matteo Calviello, Chicago, IL</span><span class="lk"><a href="https://github.com/matteocalviello" target="_blank" rel="noopener">GitHub</a><a href="https://www.linkedin.com/in/matteo-calviello" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.kaggle.com/matteocalviello12" target="_blank" rel="noopener">Kaggle</a></span></footer>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const rm=matchMedia('(prefers-reduced-motion:reduce)').matches,root=document.documentElement;
+
+/* ===== EDIT YOUR CONTENT HERE ===== */
+const P=[
+{n:'Super-resolution thesis',t:'vision research',b:'Best Senior Thesis Award',p:'I reproduced the Omni Aggregation Network, a lightweight state-of-the-art model for single image super-resolution, to within ±5% of published PSNR and SSIM. Then I modified the architecture to improve reconstruction quality while cutting parameters by 10%. The full PyTorch training and evaluation pipeline, with custom data loaders, is mine.',l:[['Code','https://github.com/matteocalviello/Thesis'],['Paper','https://scholar.rose-hulman.edu/computer_science_seniorproject/3/']]},
+{n:'NCAA Analytics Challenge',t:'analytics',b:'1st place of 157 teams',p:'We modeled what drives March Madness success, invented team performance metrics, trained upset predictors, and presented Tableau dashboards and recommendations to NCAA judges. I also pulled a sophomore onto the team, the way older brothers pulled me into my first competitions.',l:[['Code','https://github.com/tommasocalviello/ncaa-analytics']]},
+{n:'NeuroScan AI',t:'vision',b:'Medtronic top 3 finalist, BMES',p:'A full-stack medical analysis platform that segments brain scans, classifies tumors and generates a PDF report. Three TensorFlow models (U-Net and CNNs) sit behind a dynamic frontend. Built with Tommaso and presented at the BMES conference in October 2025.',l:[['Code','https://github.com/tommasocalviello/Neuroscan.ai']]},
+{n:'Lunar Autonomy Challenge',t:'vision',b:'NASA top 8',p:'Our team built a software agent that drives a simulated lunar rover. Stereo vision finds hazards, builds elevation maps and keeps the rover away from obstacles. We were one of very few all-undergraduate teams to reach the finals.',l:[['Rose-Hulman article','https://www.rose-hulman.edu/news/2025/rose-hulman-team-makes-it-to-the-top-10-of-the-nasa-lunar-autonomy-challenge.html']]},
+{n:'Pole vision at ComEd',t:'vision analytics',b:'Three summers as an intern',p:'Computer vision that predicts whether a utility pole is accessible and what it will cost to replace, plus component detection and a 10x faster auto-labeling flow over 900k+ images. There’s no public repo, but I’m happy to walk through the approach.',l:[]}
+];
+const S=[['Languages',['Python','SQL','R','Java','C','JavaScript','MATLAB']],['AI and data science',['Machine Learning','Deep Learning','Computer Vision','Agentic AI','Predictive Modeling','Data Analysis','Data Visualization']],['Frameworks and tools',['PyTorch','TensorFlow','Scikit-Learn','Pandas','NumPy','MLflow','Tableau','Power BI','GeoPandas']],['Cloud and DevOps',['Docker','Kubernetes','Azure','CI/CD','Git','Linux','Podman','Containerization']]];
+// skill -> indexes in P (thesis 0, NCAA 1, NeuroScan 2, Lunar 3, ComEd 4)
+const E={'Python':[0,2,4],'Machine Learning':[1,2,3,4],'Deep Learning':[0,2,4],'Computer Vision':[0,2,3,4],'Predictive Modeling':[1,4],'Data Visualization':[1],'PyTorch':[0],'TensorFlow':[2],'Tableau':[1]};
+const F=[['all','All'],['vision','Computer vision'],['analytics','Analytics'],['research','Research']];
+/* ================================== */
+
+// theme
+try{const s=localStorage.getItem('th');if(s)root.dataset.theme=s;else root.dataset.theme='dark'}catch(e){}
+$('#th').onclick=()=>{const d=root.dataset.theme=='dark'?'light':'dark';root.dataset.theme=d;try{localStorage.setItem('th',d)}catch(e){}};
+
+// swimmer scroll lane
+const sw=$('#sw');
+const prog=()=>{const p=root.scrollTop/((root.scrollHeight-root.clientHeight)||1)*100;sw.style.left=p+'%';sw.style.transform='translateX(-'+p+'%)'};
+addEventListener('scroll',prog,{passive:true});prog();
+
+// super-resolution reveal + fake detection
+const im=$('#ph'),cv=$('#px'),rg=$('#rg'),dv=$('#dv');
+function draw(){const w=im.naturalWidth,h=im.naturalHeight;cv.width=w;cv.height=h;const t=document.createElement('canvas');t.width=Math.round(w/14);t.height=Math.round(h/14);t.getContext('2d').drawImage(im,0,0,t.width,t.height);const c=cv.getContext('2d');c.imageSmoothingEnabled=false;c.drawImage(t,0,0,w,h)}
+const set=v=>{rg.value=v;cv.style.clipPath='inset(0 0 0 '+v+'%)';dv.style.left=v+'%';dv.style.display=v>0&&v<100?'block':'none'};
+rg.oninput=()=>set(rg.value);
+function sweep(){if(rm)return set(100);set(0);let s=null;const f=t=>{s=s||t;const p=Math.min((t-s)/2200,1);set(Math.round(100*(1-Math.pow(1-p,3))));if(p<1)requestAnimationFrame(f)};setTimeout(()=>requestAnimationFrame(f),500)}
+const go=()=>{draw();sweep()};
+im.complete&&im.naturalWidth?go():(im.onload=go,im.onerror=()=>set(100));
+$('#dt').onclick=e=>{const on=$('#fr').classList.toggle('det');e.target.setAttribute('aria-pressed',on);e.target.textContent=on?'Hide detection':'Run detection';$('#cap').hidden=!on};
+
+// count-up stats
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;io.unobserve(e.target);const el=e.target,v=+el.dataset.v,d=+(el.dataset.d||0);let s=null;const f=t=>{s=s||t;const p=Math.min((t-s)/1400,1);el.textContent=(v*(1-Math.pow(1-p,3))).toFixed(d);if(p<1)requestAnimationFrame(f)};requestAnimationFrame(f)}),{threshold:.6});
+if(!rm)$$('.n').forEach(n=>{n.textContent=(0).toFixed(+(n.dataset.d||0));io.observe(n)});
+
+// skills
+const sk=$('#sk'),sn=$('#sn'),dn=sn.textContent;let sel=null;
+S.forEach(([t,a])=>{const c=document.createElement('div');c.className='gc';c.innerHTML='<h3>'+t+'</h3>';
+a.forEach(n=>{const m=E[n],b=document.createElement(m?'button':'span');b.className='sc';b.textContent=n;
+if(m){b.setAttribute('aria-pressed',false);b.onclick=()=>{sel=sel==n?null:n;$$('#sk button').forEach(x=>x.setAttribute('aria-pressed',x.textContent==sel));$$('.pj').forEach((d,i)=>{const on=sel&&E[sel].includes(i);d.classList.toggle('hit',!!on);d.classList.toggle('dim',!!sel&&!on)});sn.innerHTML=sel?sel+' is used in: '+E[sel].map(i=>P[i].n).join(', ')+'. <a href="#projects">See highlighted projects</a>':dn}}
+c.append(b)});sk.append(c)});
+
+// projects + filters
+const pg=$('#pg'),fl=$('#fl');
+P.forEach(p=>{const d=document.createElement('details');d.className='pj';d.dataset.t=p.t;d.innerHTML='<summary>'+p.n+'<small>'+p.b+'</small></summary><p>'+p.p+'</p>'+(p.l.length?'<div class="lk">'+p.l.map(l=>'<a href="'+l[1]+'" target="_blank" rel="noopener">'+l[0]+'</a>').join('')+'</div>':'');pg.append(d)});
+F.forEach((f,i)=>{const b=document.createElement('button');b.className='chip';b.textContent=f[1];b.setAttribute('aria-pressed',i==0);b.onclick=()=>{$$('#fl button').forEach(x=>x.setAttribute('aria-pressed',x==b));$$('.pj').forEach(d=>d.hidden=!(f[0]=='all'||d.dataset.t.split(' ').includes(f[0])))};fl.append(b)});
+
+// interactive neural-network background
+const bg=$('#bg'),cx=bg.getContext('2d');let W,H,pts=[],mx=-999,my=-999;
+function rs(){W=bg.width=innerWidth;H=bg.height=innerHeight;pts=Array.from({length:Math.min(120,Math.floor(W*H/13000))},()=>({x:Math.random()*W,y:Math.random()*H,vx:rm?0:(Math.random()-.5)*.45,vy:rm?0:(Math.random()-.5)*.45}))}
+addEventListener('resize',rs);
+addEventListener('pointermove',e=>{mx=e.clientX;my=e.clientY;root.style.setProperty('--mx',mx+'px');root.style.setProperty('--my',my+'px')});
+function tick(){cx.clearRect(0,0,W,H);const c=root.dataset.theme=='dark'?'92,188,245':'13,92,143';
+for(const p of pts){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;const dx=p.x-mx,dy=p.y-my,d=Math.hypot(dx,dy);if(d<120){p.x+=dx/d*1.6;p.y+=dy/d*1.6}}
+pts.forEach((a,i)=>{cx.fillStyle='rgba('+c+',.75)';cx.beginPath();cx.arc(a.x,a.y,1.8,0,7);cx.fill();
+for(let j=i+1;j<pts.length;j++){const b=pts[j],d=Math.hypot(a.x-b.x,a.y-b.y);if(d<130){cx.strokeStyle='rgba('+c+','+(1-d/130)*.35+')';cx.beginPath();cx.moveTo(a.x,a.y);cx.lineTo(b.x,b.y);cx.stroke()}}
+const d=Math.hypot(a.x-mx,a.y-my);if(d<180){cx.strokeStyle='rgba(246,196,83,'+(1-d/180)*.8+')';cx.beginPath();cx.moveTo(a.x,a.y);cx.lineTo(mx,my);cx.stroke()}});
+if(!rm)requestAnimationFrame(tick)}
+rs();tick();
+
+// animated title, tilt cards, scroll reveal
+const h1=$('h1');let li=0;h1.innerHTML=h1.textContent.split(' ').map(w=>'<b style="white-space:nowrap">'+[...w].map(c=>'<span style="--i:'+(li++)+'">'+c+'</span>').join('')+'</b>').join(' ');
+function tilt(el){el.classList.add('tilt');el.addEventListener('pointermove',e=>{const r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;el.style.transform='perspective(800px) rotateY('+x*5+'deg) rotateX('+-y*5+'deg)';el.style.setProperty('--sx',(x+.5)*100+'%');el.style.setProperty('--sy',(y+.5)*100+'%')});el.addEventListener('pointerleave',()=>el.style.transform='')}
+const ro=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;ro.unobserve(e.target);e.target.classList.add('vis');setTimeout(()=>{e.target.classList.remove('rv','vis');e.target.style.transitionDelay=''},1000)}),{threshold:.12});
+function rv(els){if(!rm)els.forEach((el,i)=>{el.classList.add('rv');el.style.transitionDelay=(i%4)*70+'ms';ro.observe(el)})}
+if(!rm||1){$$('.pj,.frame').forEach(tilt)}
+rv($$('h2,.lead,#sk .gc,.honor,.rows a,.pj,.frame-wrap'));
+
+// live GitHub stats (data/stats.json is written by the Action)
+fetch('data/stats.json').then(r=>r.ok?r.json():Promise.reject()).then(s=>{
+$('#live').hidden=false;$('#up').textContent='Updated '+s.updated+'.';
+$('#gc').innerHTML=[['repos','Public repos'],['commits','Commits, last 12 weeks'],['stars','Stars earned'],['followers','Followers']].map(k=>'<div class="gc"><b class="n" data-v="'+s[k[0]]+'">'+s[k[0]]+'</b><span class="c">'+k[1]+'</span></div>').join('');
+const L=Object.entries(s.languages),lm=Math.max(...L.map(x=>x[1]),1),wm=Math.max(...s.weeks,1);
+$('#lg').innerHTML=L.map(([k,v])=>'<div class="br" title="'+v+' repos"><i>'+k+'</i><u style="--w:'+v/lm*100+'%"></u><em>'+v+'</em></div>').join('');
+$('#wk').innerHTML='<div class="wk">'+s.weeks.map((v,i)=>'<u title="'+v+' commits, '+(11-i)+' weeks ago" style="--h:'+v/wm*100+'%"></u>').join('')+'</div>';
+$$('#live .gc').forEach(tilt);rv($$('#gc .gc'));
+if(!rm)$$('#gc .n').forEach(n=>{n.textContent='0';io.observe(n)})}).catch(()=>{});
+
+// copy email
+$('#cp').onclick=async e=>{const b=e.target;try{await navigator.clipboard.writeText('mattecalviello04@gmail.com');b.textContent='Copied'}catch(_){location.href='mailto:mattecalviello04@gmail.com'}setTimeout(()=>b.textContent='Copy address',1800)};
+</script>
 </body>
-
 </html>

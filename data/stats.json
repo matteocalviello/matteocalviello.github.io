@@ -1,14 +1,15 @@
 {
  "updated": "Sep 21, 2026",
- "repos": 15,
+ "repos": 19,
  "followers": 1,
  "stars": 8,
  "commits": 0,
  "languages": {
   "Jupyter Notebook": 8,
   "HTML": 3,
-  "Python": 2,
-  "Java": 1
+  "Python": 3,
+  "Java": 1,
+  "TypeScript": 1
  },
  "weeks": [
   0,

@@ -111,7 +111,7 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 <section class="wrap hero" style="padding-top:48px">
 <div>
 <h1>Matteo Calviello</h1>
-<p class="tag">I teach computers to look at things: utility poles, brain scans, the lunar surface.</p>
+<p class="tag">Associate Data Scientist at Exelon (ComEd) building computer vision, machine learning, and AI agent solutions for utility infrastructure.</p>
 <p>I’m an Associate Data Scientist at ComEd in Chicago. I grew up in Milan, trained at Rose-Hulman, and now build the vision models and AI agents that help a utility understand its grid. Drag the slider under my photo to see super-resolution, the subject of my thesis, at work.</p>
 <div class="btns">
 <a class="b p" href="mailto:mattecalviello04@gmail.com">Email me</a>
@@ -166,7 +166,6 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 <h2>Publications and press</h2>
 <p class="lead">My thesis, award essay and press coverage.</p>
 <div class="rows">
-<a href="Matteo_Calviello_-_Essay_award.pdf" target="_blank" rel="noopener"><b>Outstanding Senior &amp; Scholar essay</b><span>My story for the CSSE faculty: switching majors, competitions, swimming and the fraternity.</span></a>
 <a href="https://scholar.rose-hulman.edu/computer_science_seniorproject/3/" target="_blank" rel="noopener"><b>Senior thesis on super-resolution</b><span>Best Senior Thesis Award paper, hosted on Rose-Hulman Scholar.</span></a>
 <a href="https://www.rose-hulman.edu/news/2025/rose-hulman-team-makes-it-to-the-top-10-of-the-nasa-lunar-autonomy-challenge.html" target="_blank" rel="noopener"><b>Rose-Hulman: the NASA Lunar Autonomy Challenge</b><span>Our all-undergraduate team reaches the finals.</span></a>
 <a href="https://www.rose-hulman.edu/news/2026/twins-matteo-and-tommaso-calviello-swim-through-college-together.html" target="_blank" rel="noopener"><b>Rose-Hulman: twins swim through college together</b><span>Tommaso and I on four years in the pool.</span></a>
@@ -196,14 +195,16 @@ const rm=matchMedia('(prefers-reduced-motion:reduce)').matches,root=document.doc
 /* ===== EDIT YOUR CONTENT HERE ===== */
 const P=[
 {n:'Super-resolution thesis',t:'vision research',b:'Best Senior Thesis Award',p:'I reproduced the Omni Aggregation Network, a lightweight state-of-the-art model for single image super-resolution, to within ±5% of published PSNR and SSIM. Then I modified the architecture to improve reconstruction quality while cutting parameters by 10%. The full PyTorch training and evaluation pipeline, with custom data loaders, is mine.',l:[['Code','https://github.com/matteocalviello/Thesis'],['Paper','https://scholar.rose-hulman.edu/computer_science_seniorproject/3/']]},
-{n:'NCAA Analytics Challenge',t:'analytics',b:'1st place of 157 teams',p:'We modeled what drives March Madness success, invented team performance metrics, trained upset predictors, and presented Tableau dashboards and recommendations to NCAA judges. I also pulled a sophomore onto the team, the way older brothers pulled me into my first competitions.',l:[['Code','https://github.com/tommasocalviello/ncaa-analytics']]},
-{n:'NeuroScan AI',t:'vision',b:'Medtronic top 3 finalist, BMES',p:'A full-stack medical analysis platform that segments brain scans, classifies tumors and generates a PDF report. Three TensorFlow models (U-Net and CNNs) sit behind a dynamic frontend. Built with Tommaso and presented at the BMES conference in October 2025.',l:[['Code','https://github.com/tommasocalviello/Neuroscan.ai']]},
+{n:'NCAA Analytics Challenge',t:'analytics',b:'1st place of 157 teams',p:'We modeled what drives March Madness success, invented team performance metrics, trained upset predictors, and presented Tableau dashboards and recommendations to NCAA judges. I also pulled a sophomore onto the team, the way older brothers pulled me into my first competitions.',l:[['Code','https://github.com/matteocalviello/ncaa-analytics']]},
+{n:'NeuroScan AI',t:'vision',b:'Medtronic top 3 finalist, BMES',p:'A full-stack medical analysis platform that segments brain scans, classifies tumors and generates a PDF report. Three TensorFlow models (U-Net and CNNs) sit behind a dynamic frontend. Built with Tommaso and presented at the BMES conference in October 2025.',l:[['Code','https://github.com/matteocalviello/Neuroscan.ai']]},
 {n:'Lunar Autonomy Challenge',t:'vision',b:'NASA top 8',p:'Our team built a software agent that drives a simulated lunar rover. Stereo vision finds hazards, builds elevation maps and keeps the rover away from obstacles. We were one of very few all-undergraduate teams to reach the finals.',l:[['Rose-Hulman article','https://www.rose-hulman.edu/news/2025/rose-hulman-team-makes-it-to-the-top-10-of-the-nasa-lunar-autonomy-challenge.html']]},
-{n:'Pole vision at ComEd',t:'vision analytics',b:'Three summers as an intern',p:'Computer vision that predicts whether a utility pole is accessible and what it will cost to replace, plus component detection and a 10x faster auto-labeling flow over 900k+ images. There’s no public repo, but I’m happy to walk through the approach.',l:[]}
+{n:'Pole vision at ComEd',t:'vision analytics',b:'Three summers as an intern',p:'Computer vision pipeline that predicts whether a utility pole is accessible and what it will cost to replace, plus component detection and a 10x faster auto-labeling flow over 900k+ images.',l:[]},
+{n: 'National Park Hiking Web App',t: 'analytics',b: 'Interactive trail exploration',p: 'A web application that visualizes national park trails and provides hiking recommendations. Built to help users filter, analyze, and explore trail data dynamically.',l: [['Code', 'https://github.com/matteocalviello/national-park-hiking-webapp']]},
+{n: 'Flower Vision Web App',t: 'vision',b: 'Image classification web application',p: 'An interactive frontend that allows users to upload images of flowers and instantly classifies the species using a trained computer vision and deep learning model.',l: [['Code', 'https://github.com/matteocalviello/flower-vision-web-app']]}
 ];
-const S=[['Languages',['Python','SQL','R','Java','C','JavaScript','MATLAB']],['AI and data science',['Machine Learning','Deep Learning','Computer Vision','Agentic AI','Predictive Modeling','Data Analysis','Data Visualization']],['Frameworks and tools',['PyTorch','TensorFlow','Scikit-Learn','Pandas','NumPy','MLflow','Tableau','Power BI','GeoPandas']],['Cloud and DevOps',['Docker','Kubernetes','Azure','CI/CD','Git','Linux','Podman','Containerization']]];
+const S=[['Languages',['Python','SQL','R','Java','C','JavaScript','MATLAB', 'NoSQL']],['AI and data science',['Machine Learning','Deep Learning','Computer Vision','Agentic AI','Predictive Modeling','Data Analysis','Data Visualization']],['Frameworks and tools',['PyTorch','TensorFlow','Scikit-Learn','Pandas','NumPy','MLflow','Tableau','Power BI','GeoPandas']],['Cloud and DevOps',['Docker','Kubernetes','Azure','CI/CD','Git','Linux','Podman','Containerization']]];
 // skill -> indexes in P (thesis 0, NCAA 1, NeuroScan 2, Lunar 3, ComEd 4)
-const E={'Python':[0,2,4],'Machine Learning':[1,2,3,4],'Deep Learning':[0,2,4],'Computer Vision':[0,2,3,4],'Predictive Modeling':[1,4],'Data Visualization':[1],'PyTorch':[0],'TensorFlow':[2],'Tableau':[1]};
+const E={'Python':[0,1,2,3,4,5,6],'Machine Learning':[1,2,3,4],'Deep Learning':[0,2,4,6],'Computer Vision':[0,2,3,4,6],'Predictive Modeling':[1,4],'Data Visualization':[1,5],'PyTorch':[0,6],'TensorFlow':[2],'Tableau':[1], 'SQL':[5], 'MATLAB':[3], 'MLflow':[6], 'Docker':[6], 'Kubernetes':[6], 'Azure':[6], 'CI/CD':[6], 'Git':[0,1,2,3,4,5,6], 'Containerization':[6], 'NoSQL':[5]};
 const F=[['all','All'],['vision','Computer vision'],['analytics','Analytics'],['research','Research']];
 /* ================================== */
 
@@ -266,10 +267,9 @@ rv($$('h2,.lead,#sk .gc,.honor,.rows a,.pj,.frame-wrap'));
 // live GitHub stats (data/stats.json is written by the Action)
 fetch('data/stats.json').then(r=>r.ok?r.json():Promise.reject()).then(s=>{
 $('#live').hidden=false;$('#up').textContent='Updated '+s.updated+'.';
-$('#gc').innerHTML=[['repos','Public repos'],['commits','Commits, last 12 weeks'],['stars','Stars earned'],['followers','Followers']].map(k=>'<div class="gc"><b class="n" data-v="'+s[k[0]]+'">'+s[k[0]]+'</b><span class="c">'+k[1]+'</span></div>').join('');
+$('#gc').innerHTML=[['repos','Public repos'],['stars','Stars earned'],['followers','Followers']].map(k=>'<div class="gc"><b class="n" data-v="'+s[k[0]]+'">'+s[k[0]]+'</b><span class="c">'+k[1]+'</span></div>').join('');
 const L=Object.entries(s.languages),lm=Math.max(...L.map(x=>x[1]),1),wm=Math.max(...s.weeks,1);
 $('#lg').innerHTML=L.map(([k,v])=>'<div class="br" title="'+v+' repos"><i>'+k+'</i><u style="--w:'+v/lm*100+'%"></u><em>'+v+'</em></div>').join('');
-$('#wk').innerHTML='<div class="wk">'+s.weeks.map((v,i)=>'<u title="'+v+' commits, '+(11-i)+' weeks ago" style="--h:'+v/wm*100+'%"></u>').join('')+'</div>';
 $$('#live .gc').forEach(tilt);rv($$('#gc .gc'));
 if(!rm)$$('#gc .n').forEach(n=>{n.textContent='0';io.observe(n)})}).catch(()=>{});
 
